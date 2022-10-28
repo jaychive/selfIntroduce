@@ -1,0 +1,154 @@
+메서드
+addClass('on act'); // 2개 들어갈 수 있음
+removeClass(''); // 클래스 전부 제거도 가능
+
+toggleClass('on');
+
+eq(); // 배열이 아닌 형제관계의 요소 인덱스 () 안에 입력하여 특정요소 선택 가능하도록 함
+
+
+$(window).scroll(function(){
+  if($(window).scrollTop() > 0){
+    $('#hd').addClass('scroll');
+  }else{
+    $('#hd').removeClass('scroll');
+  }
+});
+
+
+^ 시작
+$ 끝
+* 어디라도
+
+$(document).ready(function(){
+  $('img').attr('src','logo.jpg');
+  $('a').attr('href','#none');
+  $('a').preventDefault(); <= 이거는 안 되나??
+
+  $('a[href="#none"]').addClass('d-none'); // class="d-none"
+  $([href="#none"]).css('display','none'); // style="display:none"
+  $([href="#none"]).hide(); // js가 밀고 들어감 => 순위가 높아 css가 못 들어감
+
+  // addClass로 d-none 넣는 게 제일 가볍고 css로 응용하기 좋다!!
+
+  $('img[src$=".gif"]').addClass('d-none');
+  // 근데 만약 맨 끝이 .gif가 아니고 ?ver=ajsdlfjal 등등 이런 상태라면
+  $('img[src*=".gif"]').addClass('d-none'); // * (어디라도) 사용!
+
+});
+
+
+메서드 2
+
+addClass();
+removeClass();
+toggleClass();
+html(); (초기화 시키고 들어감)
+append(); (기존의 식을 놔두고 들어감 - 순리/순서를 따름)
+prepend(); (기존 식 놔두고 맨 앞으로 들어감)
+each(); (한꺼번에 처리 => 개발자 노동력 줄여줌) => $(this)와 자주 씀
+scrollTop();
+offset(); 속성 => .top, .left
+
+
+
+이벤트
+ready(fn);
+click(fn);
+scroll(fn); => scrollTop(); scroll 이벤트 안에서 scrollTop() 메서드를 써야!!
+
+
+
+변수 i를 이용해서 for문 (10회)
+
+숫자 아니고 횟수로 보세엽
+
+for(let i=0; i<10; i++){
+  console.log(i);
+};
+
+
+
+
+
+아이디 gnb 첫 번째 li 선택
+
+$("#gnb li:nth-child(1)")
+$("#gnb li:first-child")
+$("#gnb li").eq(0)
+
+
+아이디 gnb 첫 번째 li를 제외한 나머지 선택
+
+$("#gnb li:not(:first-child)")
+
+$("#gnb li:not(:nth-child('+(i+1)+'))")
+$(`#gnb li:not(:nth-child(${index+1}))`)
+
+$("#gnb li:first-child").siblings()
+
+$("#gnb li").eq(0).siblings() => 맞대여!! 젤 조은 식이래 흑흑
+
+
+JQuery
+$(document).ready(function(){
+
+});
+
+의 축약형
+
+(1)
+$(function(){
+
+});
+
+(2)
+(function(){
+
+})();
+
+바로 실행하라~~
+
+Vanilla
+window.onload = 함수명;
+window.onload = function(){};
+
+(함수명 저장해놓고 나중에 불러서 실행 => 콜백함수)
+
+(A)
+window.onload = 함수명;
+function 함수명(){
+  ~~~실행식~~~
+
+};
+(B)
+window.onload = function(){
+  ~~~실행식~~~
+};
+
+(A)
+document.getElementById('btn').onClick = 함수명;
+(B)
+document.getElementById('btn').onClick = function(){};
+
+이벤트와 사용횟수/빈도수를 확인해서 콜백함수인지 그냥 무명함수 실행인지 결정
+
+onload는 한 번만 터지므로 무명함수가 낫고
+onClick은 btn(버튼)을 계속 누르는 일이 발생하므로 콜백함수가 낫다
+
+
+
+
+$("#btn").click(function(){
+
+(1)
+  $('body').css('background-color','red').css('color','white');
+
+(2)
+  const bgStyle = {
+    'background-color':'red',
+    'color':'white'
+    }
+
+  $('body').css(bgStyle);
+});

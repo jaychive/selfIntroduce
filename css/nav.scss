@@ -1,0 +1,274 @@
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.6/dist/web/static/pretendard.css");
+
+.nanumgothic * {
+  font-family: 'Pretendard', sans-serif;
+}
+
+/* 웹표준스타일 */
+* {
+  margin: 0;
+  padding: 0;
+  font-size: 1.2rem;
+  line-height: 1.2rem;
+  letter-spacing: -0.08em;
+  font-family: 'Pretendard', sans-serif;
+}
+
+ul,
+li,
+dl,
+dt,
+dd,
+ol {
+  list-style: none
+}
+
+a {
+  color: #222;
+  text-decoration: none
+}
+
+a:hover {
+  color: red
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: normal;
+}
+
+// ::after, ::before {
+//   content: "";
+//   display: inline-block;
+// }
+
+.nobefore::before {
+  display: none !important;
+}
+
+.flexBC {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+$myfont : 'Pretendard',
+sans-serif;
+$linkFC : #222;
+$activeFC: green;
+$conWidth : 1280px;
+$minHeight : 600px;
+
+@media (min-width: 1200px) {
+
+  .container,
+  .container-lg,
+  .container-md,
+  .container-sm,
+  .container-xl {
+    max-width: 1280px;
+  }
+}
+
+.scroll #nav h1 a {
+  background-image: url(/dodam/img/logo-black.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+/*레이아웃*/
+#nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  background-color: transparent;
+  transition: .5s;
+  z-index: 10000;
+
+  a {
+    display: block;
+    color: #fff;
+    transition: .5s;
+  }
+
+  &>* {}
+
+
+  h1 {
+    a {
+      display: block;
+      background-image: url(/dodam/img/logo-color.svg);
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center;
+      transition: .5s;
+
+      img {
+        padding: 2rem 4rem;
+      }
+    }
+  }
+
+  ////h1
+  .depth1 {
+    // display: flex; //container
+
+    li {
+      //items
+      margin: 0 15px;
+
+      a {}
+    }
+
+    li.active {
+      a {
+        color: #80baff !important;
+      }
+    }
+  }
+}
+
+////상단마침
+.wrap {
+  h2 {
+    text-align: center;
+
+    &:before {
+      content: "";
+      display: inline-block;
+      height: 3px;
+      width: 20px;
+      background-color: $linkFC;
+      margin: 0 auto 15px;
+    }
+  }
+
+  section {
+    padding: 80px 0;
+    // min-height: $minHeight;
+    height: 100vh;
+  }
+
+  #sec1 {
+    background-image: url(/dodam/img/mainBanner.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom;
+  }
+
+  #about {}
+
+  #tech {}
+
+  #portfolio {}
+
+  #myInterview {
+    // #interview {
+    //   max-width: $conWidth;
+    //   margin: 0 auto;
+
+    //   dt {
+    //     border-bottom: 1px solid $linkFC;
+    //     padding: 10px;
+
+    //     &:before {
+    //       content: "Q";
+    //       margin-right: 20px;
+    //       font-size: 1.2em;
+    //       color: red;
+    //       vertical-align: middle
+    //     }
+
+    //     strong {
+    //       vertical-align: middle;
+    //       font-size: 2em;
+    //       font-weight: normal
+    //     }
+
+    //     &.show {
+    //       border-bottom-width: 3px;
+    //       border-color: $linkFC;
+
+    //       strong {
+    //         font-weight: bold;
+    //       }
+
+    //       &:before {
+    //         color: black;
+    //         font-weight: bold;
+    //       }
+
+    //       &+* {
+    //         display: block
+    //       }
+    //     }
+
+    //   }
+
+    //   dd {
+    //     display: none;
+    //     padding: 20px 50px;
+    //   }
+    // }
+
+    #btnAll_interview {
+      font-size: 1.5rem;
+      border: transparent;
+      border-radius: 2rem;
+      padding: 0.5rem 1rem;
+      background-color: #80baff;
+      color: white;
+    }
+
+    .faq {
+      dt {
+        border-top: 1px solid #565656;
+
+        &::after {
+          content: "+";
+        }
+
+        &.act::after {
+          content: "-";
+        }
+
+        &.act {
+          color: #80baff;
+        }
+
+        &.act+dd {
+          max-height: 250px;
+          padding-top: 1rem;
+        }
+      }
+
+      dd {
+        margin-bottom: 0;
+        background-color: #ddd;
+        max-height: 0;
+        padding: 0;
+        overflow: hidden;
+        transition: 0.5s;
+      }
+    }
+  }
+
+  #contact {
+
+    #swiper1 {
+      i {
+        display: block;
+        font-size: 5rem;
+      }
+    }
+  }
+}
